@@ -1,0 +1,26 @@
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin hoverColor {
+  color: #0e0;
+}
+
+@mixin colorGray {
+  color: #999;
+}
+
+@mixin size($w: null, $h: null, $m: null, $p: null) {
+  width: $w;
+  height: $h;
+  margin: $m;
+  padding: $p;
+}
