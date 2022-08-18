@@ -56,7 +56,7 @@ export default function TodoList() {
       .then(res => {
         setTodoList(res);
       });
-  }, [isUpdated]);
+  }, []);
 
   return (
     <div className={css.todoListWrap}>

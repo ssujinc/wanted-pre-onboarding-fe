@@ -11,8 +11,8 @@ import {
 export default function Todo({ id, todo, isCompleted, setIsUpdated }) {
   const token = localStorage.getItem('access_token');
 
-  const [changeTodo, setChangeTodo] = useState(todo);
-  const handleChangeTodo = e => setChangeTodo(e.target.value);
+  const [changeTodoText, setChangeTodoText] = useState(todo);
+  const handleChangeTodo = e => setChangeTodoText(e.target.value);
 
   const [isChangeTodo, setIsChangeTodo] = useState(false);
   const [isCompleteTodo, setIsCompleteTodo] = useState(isCompleted);
@@ -29,14 +29,14 @@ export default function Todo({ id, todo, isCompleted, setIsUpdated }) {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          todo: changeTodo,
+          todo: changeTodoText,
           isCompleted: isCompleteTodo,
         }),
       }
     ).then(res => {
       if (res.status === 200) {
         setIsUpdated(true);
-        handleCancle();
+        cancleFunction();
       }
     });
   };
@@ -66,10 +66,16 @@ export default function Todo({ id, todo, isCompleted, setIsUpdated }) {
     todoInput.current.focus();
   };
 
-  const handleCancle = () => {
+  const cancleFunction = () => {
     setIsReadonly(prev => !prev);
     setIsDisbled(prev => !prev);
     setIsChangeTodo(false);
+  };
+
+  const handleCancle = () => {
+    cancleFunction();
+    setChangeTodoText(todo);
+    setIsCompleteTodo(isCompleted);
   };
 
   return (
@@ -84,7 +90,7 @@ export default function Todo({ id, todo, isCompleted, setIsUpdated }) {
       </div>
       <input
         className={css.todoInput}
-        value={changeTodo}
+        value={changeTodoText}
         onChange={handleChangeTodo}
         readOnly={isReadonly}
         ref={todoInput}
