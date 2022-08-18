@@ -2,12 +2,10 @@
 .todoListWrap {
   display: flex;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  @include size(100vw, 100vh);
   .cont {
-    width: 80%;
+    @include size(80%, $p: 5rem 0);
     max-width: 104rem;
-    padding: 5rem 0;
     h1 {
       padding: 1rem 0 3rem;
       font-size: 3.4rem;
@@ -17,15 +15,11 @@
     }
     .listWrap {
       .inputWrap {
-        display: flex;
-        justify-content: space-between;
-        align-items: stretch;
+        @include flexSpaceBetweenStretch;
 
         input {
           flex: 1;
-          height: 100%;
-          margin-right: 0.8rem;
-          padding: 1rem 2rem;
+          @include size($h: 100%, $m: 0 0.8rem 0 0, $p: 1rem 2rem);
           border: 1px solid #bdbdbd;
           border-radius: 0.4rem;
           font-size: 2rem;
@@ -46,12 +40,10 @@
       }
     }
     .todoWrap {
-      width: 100%;
-      margin-top: 3rem;
+      @include size(100%, $m: 3rem 0);
       .todo {
         @include flexSpaceBetweenStretch;
-        width: 100%;
-        margin-top: 1rem;
+        @include size(100%, $m: 1rem 0);
 
         .inputCheckbox {
           @include flexSpaceBetweenStretch;
@@ -60,8 +52,7 @@
 
         .todoInput {
           flex: 1;
-          margin-right: 0.8rem;
-          padding: 1.2rem;
+          @include size($h: 100%, $m: 0 0.8rem 0 0, $p: 1.2rem);
           border: 1px solid #864879;
           border-radius: 0.4rem;
           font-size: 1.6rem;
