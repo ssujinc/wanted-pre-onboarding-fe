@@ -1,0 +1,97 @@
+@import '../../styles/variables.scss';
+.todoListWrap {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  .cont {
+    width: 80%;
+    max-width: 104rem;
+    padding: 5rem 0;
+    h1 {
+      padding: 1rem 0 3rem;
+      font-size: 3.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .listWrap {
+      .inputWrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+
+        input {
+          flex: 1;
+          height: 100%;
+          margin-right: 0.8rem;
+          padding: 1rem 2rem;
+          border: 1px solid #bdbdbd;
+          border-radius: 0.4rem;
+          font-size: 2rem;
+          &::placeholder {
+            font-size: 1.6rem;
+          }
+        }
+
+        button {
+          width: 8%;
+          max-width: 6rem;
+          min-width: 5rem;
+          border-radius: 0.4rem;
+          background: #1f1d36;
+          font-size: 2rem;
+          color: #fff;
+        }
+      }
+    }
+    .todoWrap {
+      width: 100%;
+      margin-top: 3rem;
+      .todo {
+        @include flexSpaceBetweenStretch;
+        width: 100%;
+        margin-top: 1rem;
+
+        .inputCheckbox {
+          @include flexSpaceBetweenStretch;
+          width: 3%;
+        }
+
+        .todoInput {
+          flex: 1;
+          margin-right: 0.8rem;
+          padding: 1.2rem;
+          border: 1px solid #864879;
+          border-radius: 0.4rem;
+          font-size: 1.6rem;
+          &:read-only {
+            border-color: #ccc;
+          }
+        }
+        .btnWrap {
+          @include flexSpaceBetweenStretch;
+          width: 18%;
+          max-width: 12rem;
+          min-width: 9.4rem;
+          font-size: 1.6rem;
+
+          button {
+            width: 48%;
+            border-radius: 0.4rem;
+            background: #3f3351;
+            color: #fff;
+
+            &.btnEdit,
+            &.btnUpdate {
+              background: #864879;
+            }
+            &.btnCancle {
+              background: #e9a6a6;
+            }
+          }
+        }
+      }
+    }
+  }
+}

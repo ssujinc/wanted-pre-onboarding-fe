@@ -10,12 +10,10 @@
   align-items: center;
 }
 
-@mixin hoverColor {
-  color: #0e0;
-}
-
-@mixin colorGray {
-  color: #999;
+@mixin flexSpaceBetweenStretch {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
 }
 
 @mixin size($w: null, $h: null, $m: null, $p: null) {
